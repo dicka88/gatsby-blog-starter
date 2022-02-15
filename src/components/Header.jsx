@@ -7,7 +7,7 @@ export default function Header() {
     <header>
       <Box bg="red.500" color="white">
         <Container maxW="container.md" paddingY={12}>
-          <Link href="/">
+          <Link to="/">
             <Heading as="h1" size="2xl" >
               Code and Tech Blog
             </Heading>

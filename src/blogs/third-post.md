@@ -1,7 +1,6 @@
 ---
-slug: /first-post
 date: 2022-02-15
-title: My first blog post
+title: My Third blog post
 ---
 
 # My first Post

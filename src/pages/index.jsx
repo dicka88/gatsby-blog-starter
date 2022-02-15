@@ -2,16 +2,35 @@ import React from 'react';
 import Blog from '../components/Blog';
 import Layout from '../components/Layout';
 import { Text } from '@chakra-ui/react';
+import { graphql } from 'gatsby';
 
-export default function index() {
+export default function index({ data }) {
+  const { blogs } = data.allMdx;
+
   return (
     <Layout>
       <Text fontWeight={'black'}>
         Latest Article
       </Text>
-      <Blog link={"/home"} title="My First Post" date="May 13, 2022" excerpt="Lorem ipsum sit dolor amet, idk what is the next word" />
-      <Blog link={"/home"} title="My Second Post" date="May 13, 2022" excerpt="Lorem ipsum sit dolor amet, idk what is the next word" />
-      <Blog link={"/home"} title="My Third Post" date="May 13, 2022" excerpt="Lorem ipsum sit dolor amet, idk what is the next word" />
+      {blogs.map(blog =>
+        <Blog link={blog.slug} title={blog.frontmatter.title} date={blog.frontmatter.date} excerpt={blog.excerpt} />
+      )}
     </Layout>
   );
 }
+
+export const query = graphql`
+  query BlogList {
+    allMdx {
+      blogs: nodes {
+        excerpt
+        frontmatter {
+          title
+          date(formatString: "MMM DD, YYYY")
+        }
+        slug
+        timeToRead
+      }
+    }   
+  }
+`;

@@ -22,15 +22,15 @@ module.exports = {
         path: `${__dirname}/src/blogs`
       }
     },
-    `gatsby-transformer-remark`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
-      resolve: 'gatsby-plugin-mdx',
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        extenstions: ['.md', '.mdx']
+        extensions: ['.mdx', '.md']
       }
     },
+    // `gatsby-transformer-remark`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
