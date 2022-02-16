@@ -3,12 +3,14 @@ import Blog from '../components/Blog';
 import Layout from '../components/Layout';
 import { Text } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
+import Seo from '../components/Seo';
 
 export default function index({ data }) {
   const { blogs } = data.allMdx;
 
   return (
     <Layout>
+      <Seo />
       <Text fontWeight={'black'}>
         Latest Article
       </Text>
